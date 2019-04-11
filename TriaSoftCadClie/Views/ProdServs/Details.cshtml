@@ -1,0 +1,26 @@
+﻿@model TriaSoftCadClie.Models.ProdServ
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProdServ</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeProdServ)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeProdServ)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProdServID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

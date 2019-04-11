@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TriaSoftCadClie.Models.Cliente>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Procurar por Cliente: @Html.TextBox("filtroCliente") Procurar por Empresa: @Html.TextBox("filtroEmpresa")
+        <input type="submit" value="Procurar" />
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.ProdServ.NomeProdServ)</th>
+        <th>@Html.DisplayNameFor(model => model.NomeEmpresa)</th>
+        <th>@Html.ActionLink("NomeCliente", "Index", new { ordenacaoOrdem = ViewBag.NomeClienteOrdenacaoParm })</th>
+        <th>@Html.DisplayNameFor(model => model.Telefone)</th>
+        <th>@Html.DisplayNameFor(model => model.Email)</th>
+        <th>@Html.DisplayNameFor(model => model.Atendimento)</th>
+        <th>@Html.ActionLink("DataCadastro", "Index", new { ordenacaoOrdem = ViewBag.DataCadastroOrdenacaoParm })</th>
+        <th>@Html.DisplayNameFor(model => model.DataAtend)</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.ProdServ.NomeProdServ)</td>
+        <td>@Html.DisplayFor(modelItem => item.NomeEmpresa)</td>
+        <td>@Html.DisplayFor(modelItem => item.NomeCliente)</td>
+        <td>@Html.DisplayFor(modelItem => item.Telefone)</td>
+        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+        <td>@Html.DisplayFor(modelItem => item.Atendimento)</td>
+        <td>@Html.DisplayFor(modelItem => item.DataCadastro)</td>
+        <td>@Html.DisplayFor(modelItem => item.DataAtend)</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
